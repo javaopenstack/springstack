@@ -1,0 +1,12 @@
+<div class="alert alert-danger error-data">
+  <span class="glyphicon glyphicon-exclamation-sign">&nbsp;</span><span>Errore</span>
+  <span th:if="${devmode==true}">
+  	<button class="btn btn-danger btn-xs" data-toggle="collapse" th:data-target="${'#stack_' + ref_id}">
+ 		<span class="glyphicon glyphicon-th-list"></span>Dettagli
+ 	</button>&nbsp;
+  	<button class="btn btn-danger btn-xs send-data"><span style="cursor: pointer;" class="glyphicon glyphicon-flash"></span>Invia di nuovo</button>
+  	<div th:id="${'stack_' + ref_id}" class="collapse">  		
+  		<div style="font-family: monospace;" th:text="${stacktrace}"></div>  		
+  	</div>
+  </span>
+</div>

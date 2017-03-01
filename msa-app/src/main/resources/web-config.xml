@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<cfg:configuration xmlns:cfg="http://www.multiserass.com/schema/configuration" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.multiserass.com/schema/configuration config.xsd ">
+  <webapp>mvc</webapp>
+  <servlet>com.msa.demo.web.WebApplication</servlet>
+  <port>8080</port>
+  <datasources>
+  	<datasource>
+  		<jndi>java:comp/env/jdbc/demo</jndi>
+  		<url>jdbc:h2:mem:test;MODE=MySQL</url>
+  		<user>sa</user>
+  		<password></password>
+  		<classname>org.h2.Driver</classname>
+  		<validationQuery>SELECT 1</validationQuery>
+  		<log>false</log>  		
+  	</datasource>
+  </datasources>
+</cfg:configuration>  
