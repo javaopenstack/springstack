@@ -1,0 +1,31 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>service</artifactId>
+	<packaging>jar</packaging>
+	<description>service</description>
+	<properties> 
+		<spring.version>4.2.6.RELEASE</spring.version> 
+		<packaging.type>jar</packaging.type>
+	</properties>
+	<parent>
+		<groupId>com.msa.demo</groupId>
+		<artifactId>core</artifactId>
+		<version>0.0.1-SNAPSHOT</version> 
+	</parent>
+	<dependencies> 
+		<dependency>
+			<groupId>org.eclipse.persistence</groupId>
+			<artifactId>javax.persistence</artifactId>
+			<version>2.1.1</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>1.7.22</version>
+		</dependency> 
+	</dependencies>
+	<groupId>com.msa.demo</groupId>
+	<version>0.0.1-SNAPSHOT</version>
+</project>
