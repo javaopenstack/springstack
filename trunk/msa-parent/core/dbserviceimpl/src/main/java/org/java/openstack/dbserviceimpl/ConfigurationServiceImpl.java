@@ -1,6 +1,5 @@
 package org.java.openstack.dbserviceimpl;
 
-import java.util.Iterator;
 import java.util.Properties;
 
 import org.java.openstack.dbserviceimpl.repository.ConfigurationRepository;

@@ -14,6 +14,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.DependsOn;
 import org.springframework.context.annotation.Import;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.data.jpa.repository.support.JpaRepositoryFactory;
@@ -46,14 +47,22 @@ public class CoreConfig
 		this.appname = appname;
 	}
 	
+	
+	
 	@Bean
-	public DataSource dataSource(File appFolder){
+	public DataSource dataSource(){
 		
 		JndiDataSourceLookup jdDataSourceLookup = new JndiDataSourceLookup();
 		jdDataSourceLookup.setResourceRef(true);
 		return jdDataSourceLookup.getDataSource(JNDI_NAME);
+	}  
+	@Bean  
+	public ConfigInitializer inizialize(DataSource dataSource){
+		ConfigInitializer configInitializer = new ConfigInitializer(appname);
+		configInitializer.configureLogger(); 
+		return configInitializer;
 	}
-	 
+	
 	@Bean
 	public LocalContainerEntityManagerFactoryBean entityManagerFactory(DataSource dataSource)
 	{
@@ -85,62 +94,6 @@ public class CoreConfig
 	{
 		return new TransactionTemplate( transactionManager );
 	}
-	 
-	@Bean
-	public File appFolder() throws Exception
-	{
-		
-		File appFolder = new File( System.getProperty( APP_NAME_VARIABLE_NAME ), appname );
-		StringBuilder sb = new StringBuilder();
-		sb.append( "\n\n\n\n" );
-		sb.append( StringUtils.repeat( "_", 80 ) );
-		sb.append( "\n" );
-		String asciiArt = FigletFont.convertOneLine( this.appname );
-		String line = null;
-		try( BufferedReader bufferedReader = new BufferedReader( new StringReader( asciiArt ) ) ) {
-			
-			while( ( line = bufferedReader.readLine() ) != null ) {
-				sb.append( StringUtils.center( line, 80 ) + "\n" );
-			}
-			
-		}
-		
-		sb.append( StringUtils.center( " " + APP_NAME_VARIABLE_NAME + " : " + System.getProperty( APP_NAME_VARIABLE_NAME ), 80 ) );
-		sb.append( "\n" );
-		sb.append( StringUtils.center( " APP_FOLDER : " + appFolder.getAbsolutePath() + " ", 80 ) );
-		sb.append( "\n" );
-		sb.append( "\n" );
-		sb.append( StringUtils.repeat( "_", 80 ) );
-		sb.append( "\n\n\n\n" );
-		System.out.println( sb );
-		configureLogger( appFolder );
-		return appFolder;
-	}	
-	 
-	
-	private void configureLogger( File detachFolder ) throws Exception
-	{
-		File log4jConfig = new File( detachFolder, "config/log4j.properties" );
-		if( !log4jConfig.isFile() ) {
-			StringBuilder sb = new StringBuilder();
-			sb.append( "\n\n" );
-			sb.append( StringUtils.repeat( "*", 80 ) + "\n" );
-			sb.append( StringUtils.center( "Missing file " + log4jConfig.getAbsolutePath() + " please check ", 78 ) );
-			sb.append( StringUtils.repeat( "*", 80 ) + "\n" );
-			sb.append( "\n\n" );
-			System.out.println( sb );
-		} else {
-			Properties properties = new Properties();
-			properties.load( new FileInputStream( log4jConfig ) );
-			
-			/**
-			 * Invoke BasicConfigurator.resetConfiguration();PropertyConfigurator.configure( properties );
-			 * used to avoid log4j compile dependency
-			 */
-			ReflectionUtils.findMethod(Class.forName("org.apache.log4j.BasicConfigurator"), "resetConfiguration").invoke(null, new Object[]{});
-			ReflectionUtils.findMethod(Class.forName("org.apache.log4j.PropertyConfigurator"), "configure").invoke(null, new Object[]{properties});
-
-		}
-	}
+	  
 	
 }

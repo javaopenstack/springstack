@@ -55,48 +55,7 @@ public class ConfigInitializer {
 			
 		
 	}
-	public Boolean initializeDatabase(DataSource dataSource){
-		
-		final Logger logger = LoggerFactory.getLogger( CoreConfig.class );
-		Class<?> clazz;
-		 		
-		try( Connection connection = dataSource.getConnection() ) {
-			
-			try {
-				clazz = Class.forName("com.msa.demo.flyway.FlywayInizializer");
-			} catch (ClassNotFoundException e) {
-				System.err.println("Flyway not initialized. Missing dependency: " + e.toString() );
-				return Boolean.FALSE;
-			} 
-			String vendor = connection.getMetaData().getDatabaseProductName();
-			
-			List<String> locations = new ArrayList<>();
-			String rootPath = "classpath:configuration" + File.separator+ "flyway" + File.separator;
-			locations.add( rootPath + "common" );
-			locations.add( rootPath + "vendor" + File.separator + vendor );
-			
-			
-			logger.info( StringUtils.repeat( "-", 80 ) );
-			logger.info( "Flyway folders " );
-			logger.info( StringUtils.repeat( "-", 80 ) );
-			logger.info( StringUtils.join( locations.toArray(), ", " ) );
-			logger.info( StringUtils.repeat( "-", 80 ) + "\n\n" );
-			
-			List<String> config = new ArrayList<>();
-			config.add( "classpath:configuration/flyway" );
-			
-			Method method = clazz.getMethod("createFlyway",DataSource.class, List.class);
-			method.invoke(null, dataSource,  locations);
-			connection.close();
-			
-		}catch(Throwable e){
-			throw new IllegalStateException(e);
-		} 
-		 
-		return Boolean.TRUE; 
-		
-		
-	}
+	 
 	
 	public Boolean configureLogger() {
 		try{

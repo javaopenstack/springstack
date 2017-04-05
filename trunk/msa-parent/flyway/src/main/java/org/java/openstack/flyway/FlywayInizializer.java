@@ -1,4 +1,4 @@
-package com.msa.demo.flyway;
+package org.java.openstack.flyway;
 
 import java.io.File;
 import java.sql.Connection;
@@ -13,7 +13,11 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class FlywayInizializer {
-
+	
+	public FlywayInizializer(){
+		
+	}
+	
 	public static Flyway createFlyway(DataSource dataSource ){
 		
 		final Logger logger = LoggerFactory.getLogger( FlywayInizializer.class );

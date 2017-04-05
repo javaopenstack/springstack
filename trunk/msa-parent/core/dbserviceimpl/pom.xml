@@ -87,29 +87,31 @@
 			<artifactId>commons-dbcp2</artifactId>
 			<version>2.1.1</version>
 			<scope>test</scope>
-		</dependency> 
+		</dependency>
 		<dependency>
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
 			<version>1.4.191</version>
 			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.java.openstack</groupId>
-			<artifactId>support</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-			<type>pom</type>
 		</dependency> 
 		<dependency>
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-config</artifactId>
-			<version>${spring.security.version}</version> 
+			<version>${spring.security.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.java.openstack</groupId>
-			<artifactId>dbutilities</artifactId> 
+			<artifactId>dbutilities</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 			<scope>test</scope>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-simple -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-simple</artifactId>
+			<version>1.7.21</version>
+			<scope>test</scope>
+		</dependency>
+
 	</dependencies>
 </project>

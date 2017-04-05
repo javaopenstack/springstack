@@ -1,4 +1,4 @@
-package com.msa.demo.flyway;
+package org.java.openstack.flyway;
 
 import org.kohsuke.args4j.Option;
 
