@@ -14,8 +14,8 @@
 		<jackson-2-version>2.7.4</jackson-2-version>
 	</properties>
 	<parent>
-		<artifactId>msa-parent</artifactId>
-		<groupId>com.msa.demo</groupId>
+		<groupId>org.java.openstack</groupId>
+		<artifactId>modules</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 	<dependencies>
@@ -74,21 +74,20 @@
 			<groupId>nz.net.ultraq.thymeleaf</groupId>
 			<artifactId>thymeleaf-layout-dialect</artifactId>
 			<version>2.1.2</version>
-		</dependency>
+		</dependency> 
 		<dependency>
-			<groupId>com.msa.demo</groupId>
-			<artifactId>service</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>3.5</version>
 		</dependency>
-
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-databind</artifactId>
 			<version>${jackson-2-version}</version>
 		</dependency>
 		<dependency>
-			<groupId>com.msa.tools.server</groupId>
-			<artifactId>server</artifactId>
+			<groupId>org.java.openstack</groupId>
+			<artifactId>localserver</artifactId> 
 			<version>0.0.1-SNAPSHOT</version>
 			<scope>test</scope>
 			<exclusions>
@@ -98,40 +97,15 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
+		<dependency>
+			<groupId>org.java.openstack</groupId>
+			<artifactId>service</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
 	</dependencies>
 
 	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.lesscss</groupId>
-				<artifactId>lesscss-maven-plugin</artifactId>
-				<version>1.7.0.1.1</version>
-				<configuration>
-					<watch>false</watch>
-					<watchInterval>5000</watchInterval>
-					<sourceDirectory>${project.basedir}/src/main/less</sourceDirectory>
-					<outputDirectory>${project.basedir}/src/main/resources/static/css</outputDirectory> 
-					<compress>false</compress>
-					<force>false</force>
-					<includes>
-						<include>bootstrap.less</include>
-					</includes>
-				</configuration>
-				<executions>
-					<execution>
-						<goals>
-							<goal>compile</goal>
-						</goals>
-					</execution>
-				</executions>
-				<dependencies>
-					<dependency>
-						<groupId>de.sandroboehme.lesscss</groupId>
-						<artifactId>lesscss</artifactId>
-						<version>1.6.1.1.0</version>
-					</dependency>
-				</dependencies>
-			</plugin>
+		<plugins> 
 			<plugin>
 				<groupId>org.apache.tomcat.maven</groupId>
 				<artifactId>tomcat7-maven-plugin</artifactId>
