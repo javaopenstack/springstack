@@ -1,70 +1,68 @@
 package org.java.openstack.dto;
 
+import java.io.Serializable;
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+
 @Entity
-@Table( name = "ACCOUNTS" )
-public class User {
-
-	private String name;
-
-	private int age;
+@Table( name = "USERS" ) 
+public class User implements Serializable {
+	 
+	private static final long serialVersionUID = 1L; 
 	
-	@Id
-	private Integer id;
+	@Id 
+	@Column(name="USERNAME",nullable=false,length=128)
+	private String username;
+	@Column(name="PASSWORD",nullable=false,length=4000)
+	private String password;
+	@Column(name="COMPANY",nullable=false,length=10)
+	private String company;
+	@Column(name="TOKEN",nullable=true,length=50)
+	private String token;	
+	@Column(name="LAST_UPDATE",nullable=true)
+	private Date lastUpdate;
+	@Column(name="ROLE",nullable=false)
+	private String role;
 	
-	private Date date;
-	
-	
-
-	public Date getDate() {
-		return date;
+	public String getUsername() {
+		return username;
 	}
-
-	public void setDate(Date date) {
-		this.date = date;
+	public void setUsername(String username) {
+		this.username = username;
 	}
-
-	public Integer getId() {
-		return id;
+	public String getPassword() {
+		return password;
 	}
-
-	public void setId(Integer id) {
-		this.id = id;
+	public void setPassword(String password) {
+		this.password = password;
 	}
-
-	public User() {
-
+	public String getCompany() {
+		return company;
 	}
-	
-	
- 
-	public User(String name, int age, Integer id, Date date) {
-		super();
-		this.name = name;
-		this.age = age;
-		this.id = id;
-		this.date = date;
+	public void setCompany(String company) {
+		this.company = company;
 	}
-
-	public String getName() {
-		return name;
+	public String getToken() {
+		return token;
 	}
-
-	public void setName(String name) {
-		this.name = name;
+	public void setToken(String token) {
+		this.token = token;
 	}
-
-	public int getAge() {
-		return age;
+	public Date getLastUpdate() {
+		return lastUpdate;
 	}
-
-	public void setAge(int age) {
-		this.age = age;
+	public void setLastUpdate(Date lastUpdate) {
+		this.lastUpdate = lastUpdate;
 	}
-
+	public String getRole() {
+		return role;
+	}
+	public void setRole(String role) {
+		this.role = role;
+	}
 }

@@ -12,6 +12,7 @@
 	<properties>
 		<spring.version>4.2.6.RELEASE</spring.version>
 		<hibernate.version>4.3.6.Final</hibernate.version>
+		<spring.security.version>4.0.4.RELEASE</spring.security.version>
 	</properties>
 	<profiles>
 		<profile>
@@ -98,6 +99,11 @@
 			<artifactId>support</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 			<type>pom</type>
+		</dependency> 
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-config</artifactId>
+			<version>${spring.security.version}</version> 
 		</dependency>
 	</dependencies>
 </project>

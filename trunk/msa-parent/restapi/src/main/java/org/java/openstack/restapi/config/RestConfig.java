@@ -1,7 +1,7 @@
 package org.java.openstack.restapi.config;
 
 import org.apache.commons.lang3.StringUtils;
-import org.java.openstack.restapi.controller.DataController;
+import org.java.openstack.restapi.controller.UserResourceApi;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ImportResource; 
 import org.springframework.web.servlet.config.annotation.EnableWebMvc; 
@@ -12,9 +12,9 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 public class RestConfig {
 	
 	@Bean
-	public DataController dataController(){
+	public UserResourceApi dataController(){
 		
-		return new DataController();
+		return new UserResourceApi();
 		
 	} 
 	

@@ -4,8 +4,11 @@ import org.java.openstack.restapi.config.RestConfig;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 public class WebApplication extends AbstractAnnotationConfigDispatcherServletInitializer {
-
-
+	
+	public final static Boolean SECURITY = Boolean.TRUE;
+	
+	public final static Long SESSION_TIMEOUT = -1l;
+	
 	@Override
 	protected Class<?>[] getRootConfigClasses() {
 		return new Class[]{RestConfig.class};
