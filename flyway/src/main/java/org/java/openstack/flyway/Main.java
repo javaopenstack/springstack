@@ -1,4 +1,4 @@
-package com.msa.demo.flyway;
+package org.java.openstack.flyway;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,7 +28,7 @@ public class Main {
 					argParams.getUrl(), argParams.getUser(), argParams.getPassword());
 			List<String> locations = new ArrayList<>();
 			locations.add("classpath:/configuration/flyway/common");
-			Flyway flyway = FlywayInizializer.createFlyway(dataSource);
+			Flyway flyway = new FlywayInizializer().createFlyway(dataSource);
 			flyway.migrate();
 		} catch (CmdLineException e) {
 			System.out.println("\nSet these parameters");

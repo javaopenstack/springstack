@@ -12,6 +12,7 @@ import org.java.openstack.tools.configuration.Configuration.Datasources.Datasour
 import org.java.openstack.tools.server.JndiInitializer;
 import org.junit.BeforeClass;
 import org.junit.runner.RunWith;
+import org.slf4j.LoggerFactory;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner; 
 
@@ -20,10 +21,9 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 public abstract class AbstractTest {
 	@BeforeClass
 	public static void before(){
-		 
 		
 		if ( StringUtils.isEmpty(System.getProperty(CoreConfig.APP_NAME_VARIABLE_NAME)) ){
-			File appHome = new File(AbstractTest.class.getClassLoader().getResource(".").toString(), "test_home");
+			File appHome = new File(AbstractTest.class.getClassLoader().getResource(".").getFile(), "test_home");
 			
 			System.setProperty(CoreConfig.APP_NAME_VARIABLE_NAME, appHome.toString());
 		}
