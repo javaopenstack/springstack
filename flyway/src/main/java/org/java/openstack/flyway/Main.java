@@ -28,7 +28,7 @@ public class Main {
 					argParams.getUrl(), argParams.getUser(), argParams.getPassword());
 			List<String> locations = new ArrayList<>();
 			locations.add("classpath:/configuration/flyway/common");
-			Flyway flyway = new FlywayInizializer().createFlyway(dataSource);
+			Flyway flyway = FlywayInizializer.createFlyway(dataSource);
 			flyway.migrate();
 		} catch (CmdLineException e) {
 			System.out.println("\nSet these parameters");

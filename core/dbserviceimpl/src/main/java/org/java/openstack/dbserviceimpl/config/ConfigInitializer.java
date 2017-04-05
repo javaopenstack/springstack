@@ -4,17 +4,9 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.StringReader;
-import java.lang.reflect.Method;
-import java.sql.Connection;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Properties;
 
-import javax.sql.DataSource;
-
-import org.apache.commons.lang3.StringUtils; 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.commons.lang3.StringUtils;
 
 import com.github.lalyos.jfiglet.FigletFont;
 

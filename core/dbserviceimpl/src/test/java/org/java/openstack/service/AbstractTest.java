@@ -1,8 +1,6 @@
 package org.java.openstack.service;
 
 import java.io.File;
-import java.io.FileInputStream;
-import java.lang.reflect.Method;
 import java.util.Properties;
 
 import org.apache.commons.lang3.StringUtils;

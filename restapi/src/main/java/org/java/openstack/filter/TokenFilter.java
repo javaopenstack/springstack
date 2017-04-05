@@ -34,7 +34,7 @@ public class TokenFilter extends GenericFilterBean {
 		if ( token == null ){
 			token = httpServletRequest.getHeader("token");
 		}
-		User tokenDto = userService.checkToken(token, WebApplication.SESSION_TIMEOUT);
+		User tokenDto = userService.validateToken(token, WebApplication.SESSION_TIMEOUT);
 		if ( tokenDto != null ){
 			 
 			request.setAttribute("tokenDto", tokenDto);
