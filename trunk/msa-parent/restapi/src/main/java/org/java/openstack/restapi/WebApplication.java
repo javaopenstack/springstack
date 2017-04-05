@@ -9,7 +9,7 @@ import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatche
 
 public class WebApplication extends AbstractAnnotationConfigDispatcherServletInitializer {
 	
-	public final static Boolean SECURITY = Boolean.FALSE;
+	public final static Boolean SECURITY = Boolean.TRUE;
 	
 	public final static Long SESSION_TIMEOUT = -1l;
 	
