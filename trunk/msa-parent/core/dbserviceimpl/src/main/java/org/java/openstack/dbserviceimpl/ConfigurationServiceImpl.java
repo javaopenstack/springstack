@@ -2,7 +2,6 @@ package org.java.openstack.dbserviceimpl;
 
 import java.util.Properties;
 
-import org.apache.log4j.Logger;
 import org.java.openstack.dbserviceimpl.repository.ConfigurationRepository;
 import org.java.openstack.dto.Configuration;
 import org.java.openstack.service.ConfigurationService;
@@ -16,7 +15,7 @@ public class ConfigurationServiceImpl implements ConfigurationService{
 	
 	@Override
 	public Properties getConfiguration() {
-	 Logger log = Logger.getLogger(this.getClass());
+	 
 		Properties properties = new Properties();
 		for (Configuration c : configurationRepository.findAll()) {
 			properties.put(c.getKey(),c.getValue()); 
