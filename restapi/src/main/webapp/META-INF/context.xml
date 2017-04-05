@@ -1,0 +1,3 @@
+<Context path="/restapi"> 
+	<ResourceLink name="jdbc/data" global="jdbc/data" auth="Container" type="javax.sql.DataSource"/>	
+</Context>
