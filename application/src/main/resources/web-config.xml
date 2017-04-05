@@ -5,7 +5,7 @@
   <port>8080</port>
   <datasources>
   	<datasource>
-  		<jndi>java:comp/env/jdbc/demo</jndi>
+  		<jndi>java:comp/env/jdbc/data</jndi>
   		<url>jdbc:h2:mem:test;MODE=MySQL</url>
   		<user>sa</user>
   		<password></password>
