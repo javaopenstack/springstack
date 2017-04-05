@@ -1,20 +1,12 @@
 package org.java.openstack.dbserviceimpl.config; 
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.StringReader;
-import java.util.Properties;
-
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
 
-import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.DependsOn;
 import org.springframework.context.annotation.Import;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.data.jpa.repository.support.JpaRepositoryFactory;
@@ -24,10 +16,7 @@ import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
-import org.springframework.transaction.support.TransactionTemplate;
-import org.springframework.util.ReflectionUtils;
-
-import com.github.lalyos.jfiglet.FigletFont; 
+import org.springframework.transaction.support.TransactionTemplate; 
 
 @EnableTransactionManagement
 @EnableJpaRepositories
@@ -35,7 +24,7 @@ import com.github.lalyos.jfiglet.FigletFont;
 @Import(value={RepositoryConfig.class, ServiceConfig.class})
 public class CoreConfig
 {	
-	public final static String APP_NAME_VARIABLE_NAME ="ENV_HOME";
+	public final static String ENV_NAME ="ENV_HOME";
 	
 	public final static String JNDI_NAME ="java:comp/env/jdbc/data";
 	

@@ -25,7 +25,7 @@ public class ConfigInitializer {
 	public ConfigInitializer(String appname){
 		
 		try{
-			appFolder = new File( System.getProperty( CoreConfig.APP_NAME_VARIABLE_NAME ), appname );
+			appFolder = new File( System.getProperty( CoreConfig.ENV_NAME ), appname );
 			StringBuilder sb = new StringBuilder();
 			sb.append( "\n\n\n\n" );
 			sb.append( StringUtils.repeat( "_", 80 ) );
@@ -40,7 +40,7 @@ public class ConfigInitializer {
 				
 			}
 			
-			sb.append( StringUtils.center( " " + CoreConfig.APP_NAME_VARIABLE_NAME + " : " + CoreConfig.APP_NAME_VARIABLE_NAME, 80 ) );
+			sb.append( StringUtils.center( " " + CoreConfig.ENV_NAME + " : " + CoreConfig.ENV_NAME, 80 ) );
 			sb.append( "\n" );
 			sb.append( StringUtils.center( " APP_FOLDER : " + appFolder.getAbsolutePath() + " ", 80 ) );
 			sb.append( "\n" );
