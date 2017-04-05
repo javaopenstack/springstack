@@ -14,8 +14,8 @@
 		<spring.security.version>4.0.4.RELEASE</spring.security.version>
 	</properties>
 	<parent>
-		<artifactId>core</artifactId>
 		<groupId>org.java.openstack</groupId>
+		<artifactId>modules</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 	<dependencies>

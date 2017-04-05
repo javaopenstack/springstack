@@ -6,6 +6,10 @@ import javax.naming.Context;
 
 import org.apache.commons.lang3.StringUtils;
 import org.java.openstack.dbserviceimpl.config.CoreConfig;
+import org.java.openstack.tools.configuration.Configuration;
+import org.java.openstack.tools.configuration.Configuration.Datasources;
+import org.java.openstack.tools.configuration.Configuration.Datasources.Datasource;
+import org.java.openstack.tools.server.JndiInitializer;
 import org.junit.BeforeClass;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
@@ -23,7 +27,16 @@ public abstract class AbstractTest {
 			
 			System.setProperty(CoreConfig.APP_NAME_VARIABLE_NAME, appHome.toString());
 		}
-		JndiInitializer.setup();
+		Configuration configuration = new Configuration();
+		configuration.setDatasources(new Datasources());
+		Datasource datasource = new Datasource();
+		datasource.setClassname("org.h2.Driver");
+		datasource.setJndi("java:comp/env/jdbc/data");
+		datasource.setPassword("");
+		datasource.setUrl("jdbc:h2:mem:test;MODE=MySQL");
+		datasource.setUser("sa");
+		configuration.getDatasources().getDatasource().add(datasource);
+		JndiInitializer.init(configuration);
 	}
 	
 }
