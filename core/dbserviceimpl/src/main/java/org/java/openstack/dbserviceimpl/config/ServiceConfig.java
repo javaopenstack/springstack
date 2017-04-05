@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Bean;
 public class ServiceConfig {
 
 	@Bean
-	public ConfigurationServiceImpl userServiceImpl(){
+	public ConfigurationServiceImpl configurationServiceImpl(){
 		return new ConfigurationServiceImpl();
 	}
 	
