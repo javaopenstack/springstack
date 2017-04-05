@@ -11,8 +11,7 @@
 	</parent>
 	<properties>
 		<spring.version>4.2.6.RELEASE</spring.version>
-		<hibernate.version>4.3.6.Final</hibernate.version>
-		<spring.security.version>4.0.4.RELEASE</spring.security.version>
+		<hibernate.version>4.3.6.Final</hibernate.version> 
 	</properties>
 	<profiles>
 		<profile>
@@ -93,12 +92,7 @@
 			<artifactId>h2</artifactId>
 			<version>1.4.191</version>
 			<scope>test</scope>
-		</dependency> 
-		<dependency>
-			<groupId>org.springframework.security</groupId>
-			<artifactId>spring-security-config</artifactId>
-			<version>${spring.security.version}</version>
-		</dependency>
+		</dependency>  
 		<dependency>
 			<groupId>org.java.openstack</groupId>
 			<artifactId>dbutilities</artifactId>

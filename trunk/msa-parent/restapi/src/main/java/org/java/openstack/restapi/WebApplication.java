@@ -1,11 +1,15 @@
 package org.java.openstack.restapi;
 
+import javax.servlet.ServletContext;
+import javax.servlet.ServletException;
+
 import org.java.openstack.restapi.config.RestConfig;
+import org.springframework.web.filter.DelegatingFilterProxy;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 public class WebApplication extends AbstractAnnotationConfigDispatcherServletInitializer {
 	
-	public final static Boolean SECURITY = Boolean.TRUE;
+	public final static Boolean SECURITY = Boolean.FALSE;
 	
 	public final static Long SESSION_TIMEOUT = -1l;
 	
@@ -24,7 +28,15 @@ public class WebApplication extends AbstractAnnotationConfigDispatcherServletIni
 	protected String[] getServletMappings() {
 		// TODO Auto-generated method stub
 		return new String[]{ "/" };
-	} 
+	}
 
+	@Override
+	public void onStartup(ServletContext servletContext) throws ServletException {
+		if ( SECURITY ){
+			servletContext.addFilter("securityFilter", new DelegatingFilterProxy("springSecurityFilterChain")).addMappingForUrlPatterns(null, false, "/*");	
+		}
+	 
+		super.onStartup(servletContext);
+	} 
  
 }

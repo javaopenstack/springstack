@@ -4,9 +4,9 @@ import org.java.openstack.dto.User;
 
 public interface UserService {
 	
-	User authenticate(String user, String password);
+	public User getUser(String username);
 	
-	User checkToken(String token, long timeOutMillis);
+	User validateToken(String token, long timeOutMillis);
 	
 	
 }
