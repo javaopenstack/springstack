@@ -19,7 +19,7 @@
       ">
     
    	<bean  id="applicationName" class="java.lang.String">
-   		<constructor-arg  value="test"></constructor-arg>
+   		<constructor-arg  value="restapi"></constructor-arg>
    	</bean>
      
              

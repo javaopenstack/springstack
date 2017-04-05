@@ -104,14 +104,12 @@
 			<artifactId>dbutilities</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 			<scope>test</scope>
-		</dependency>
-		<!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-simple -->
+		</dependency>  
 		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-simple</artifactId>
-			<version>1.7.21</version>
-			<scope>test</scope>
+		    <groupId>org.slf4j</groupId>
+		    <artifactId>slf4j-log4j12</artifactId>
+		    <version>1.7.19</version>
+		    <scope>test</scope>
 		</dependency>
-
 	</dependencies>
 </project>

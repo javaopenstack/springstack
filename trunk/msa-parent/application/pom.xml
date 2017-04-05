@@ -19,6 +19,14 @@
 						<target>1.7</target>
 					</configuration>
 				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-surefire-plugin</artifactId>
+					<version>2.19.1</version>
+					<configuration>
+						<skip>true</skip>
+					</configuration>
+				</plugin>
 			</plugins>
 		</pluginManagement>
 	</build>
@@ -43,7 +51,6 @@
 			<artifactId>dbserviceimpl</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
-
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
@@ -58,7 +65,7 @@
 		<dependency>
 			<groupId>org.java.openstack</groupId>
 			<artifactId>localserver</artifactId>
-			<version>0.0.1-SNAPSHOT</version>		
+			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 	</dependencies>
 </project>
