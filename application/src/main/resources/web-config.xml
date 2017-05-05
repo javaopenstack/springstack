@@ -2,7 +2,7 @@
 <cfg:configuration xmlns:cfg="http://www.multiserass.com/schema/configuration" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.multiserass.com/schema/configuration config.xsd ">
   <webapp>mvc</webapp>
   <servlet>org.java.openstack.webapp.WebApplication</servlet>
-  <port>8080</port>
+  <port>8090</port>
   <datasources>
   	<datasource>
   		<jndi>java:comp/env/jdbc/data</jndi>

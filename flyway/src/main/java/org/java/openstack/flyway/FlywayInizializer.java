@@ -28,7 +28,7 @@ public class FlywayInizializer {
 			String vendor = connection.getMetaData().getDatabaseProductName();
 			
 			List<String> locations = new ArrayList<>();
-			String rootPath = "classpath:configuration" + File.separator+ "flyway" + File.separator;
+			String rootPath = "classpath:script" + File.separator;
 			locations.add( rootPath + "common" );
 			locations.add( rootPath + "vendor" + File.separator + vendor );
 			
