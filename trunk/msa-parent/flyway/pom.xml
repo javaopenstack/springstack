@@ -21,7 +21,7 @@
 					<phase>package</phase>
 					<archive>
 						<manifest>
-							<mainClass>com.msa.demo.flyway.Main</mainClass>
+							<mainClass>org.java.openstack.flyway.Main</mainClass>
 						</manifest>
 					</archive>
 					<descriptorRefs>

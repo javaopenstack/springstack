@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?> 
 <cfg:configuration xmlns:cfg="http://www.multiserass.com/schema/configuration" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.multiserass.com/schema/configuration config.xsd ">
   <webapp>restapi</webapp>
-  <servlet>com.msa.demo.restapi.WebApplication</servlet>
+  <servlet>org.java.openstack.restapi.WebApplication</servlet>
   <port>8080</port>
   <datasources>
   	<datasource>
