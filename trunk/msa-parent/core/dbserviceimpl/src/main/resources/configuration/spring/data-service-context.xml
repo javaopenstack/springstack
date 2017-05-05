@@ -19,10 +19,10 @@
       ">
       
        
-   	<bean class="org.java.openstack.dbserviceimpl.config.CoreConfig">
+   	<bean id="core" class="org.java.openstack.dbserviceimpl.config.CoreConfig">
    		<property name="appname" ref="applicationName"></property>
    	</bean>
-    <bean class="org.java.openstack.flyway.FlywayInizializer" factory-method="createFlyway">
+    <bean class="org.java.openstack.flyway.FlywayInizializer" depends-on="core" factory-method="createFlyway">
     	<constructor-arg ref="dataSource"></constructor-arg>
     </bean>  
 </beans>
